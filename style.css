@@ -19,6 +19,7 @@ body {
     background: #429bb5;
     padding-top: 60px; /* Prevents header overlap */
     padding-bottom: 40px; /* Prevents footer overlap */
+    overflow-x: hidden;
 }
 
 /* Reduced h1 size for small screens */
@@ -75,6 +76,7 @@ h1 {
 .container {
     display: flex;
     flex-direction: column;
+    width: 90vw;  /* Adjust width to prevent overflow */
     width: min(85%, 700px); /* Reduce max width */
     gap: 25px; /* Reduce space */
     padding: 12px 20px; /* Reduce padding */
