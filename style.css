@@ -2,8 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-
-
 * {
     margin: 0;
     padding: 0;
@@ -18,15 +16,22 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #429bb5 ;
+    background: #429bb5;
     padding-top: 60px; /* Prevents header overlap */
     padding-bottom: 40px; /* Prevents footer overlap */
 }
 
+/* Reduced h1 size for small screens */
 h1 {
     font-family: 'Cinzel', serif;
+    font-size: 2rem; /* Default size */
 }
 
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem; /* Smaller text on mobile */
+    }
+}
 
 /* Header */
 .site-header {
@@ -49,7 +54,7 @@ h1 {
 
 /* Fix Logo Overflow */
 .site-header img {
-    max-height: 50px; /* Keeps logo within bounds */
+    max-height: 50px;
     max-width: 100%;
 }
 
@@ -66,35 +71,76 @@ h1 {
     z-index: 1000;
 }
 
-/* Main Container */
+/* Main Container (Smaller & Responsive) */
 .container {
     display: flex;
     flex-direction: column;
-    width: min(90%, 1000px); /* Dynamic width (90% for small, max 750px for large) */
-    gap: 40px;
-    padding: 15px 30px;
+    width: min(85%, 700px); /* Reduce max width */
+    gap: 25px; /* Reduce space */
+    padding: 12px 20px; /* Reduce padding */
     background: #fff;
     border-radius: 10px;
     align-items: center;
     justify-content: center;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.container {
-    border: 5px solid transparent;
+    border: 4px solid transparent;
     border-image: linear-gradient(45deg, #FFD700, #FFAA00, #FFD700);
     border-image-slice: 1;
 }
 
-/* Hangman Image */
+/* Game Settings & Scoreboard Inside Container */
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+/* Level Selection */
+.game-settings {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.game-settings label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.game-settings select {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    border: 2px solid #14ad96;
+    background: white;
+    cursor: pointer;
+}
+
+/* Scoreboard */
+.scoreboard {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.scoreboard p {
+    margin: 0;
+}
+
+/* Hangman Image (Smaller) */
 .hangman-box img {
     user-select: none;
-    max-width: 250px;
+    max-width: 180px;
 }
 
 /* Word Display */
 .word-display {
-    gap: 10px;
+    gap: 8px;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -102,11 +148,11 @@ h1 {
 }
 
 .word-display .letter {
-    width: 28px;
-    font-size: 2rem;
+    width: 22px;
+    font-size: 1.6rem;
     text-align: center;
     font-weight: 600;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     text-transform: uppercase;
     border-bottom: 3px solid #000;
 }
@@ -114,9 +160,9 @@ h1 {
 /* Keyboard */
 .keyboard {
     display: flex;
-    gap: 5px;
+    gap: 4px;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: 30px;
     justify-content: center;
 }
 
@@ -125,12 +171,12 @@ h1 {
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
     border-radius: 4px;
     text-transform: uppercase;
     background: #1b3ed3;
-    padding: 10px;
+    padding: 6px;
     width: calc(100% / 9 - 5px);
 }
 
@@ -142,6 +188,21 @@ h1 {
     pointer-events: none;
     opacity: 0.6;
 }
+
+.keyboard button {
+    transition: transform 0.1s, background 0.3s;
+}
+
+.keyboard button:active {
+    transform: scale(0.9);
+    background: #ff3d00;
+}
+
+.keyboard button[disabled] {
+    background: #555;
+    color: #bbb;
+}
+
 
 /* Game Modal */
 .game-modal {
@@ -168,80 +229,74 @@ h1 {
 }
 
 .game-modal .content {
-    padding: 30px;
-    max-width: 420px;
-    width: 100%;
+    padding: 20px;
+    max-width: 350px;
     border-radius: 10px;
     background: #fff;
     text-align: center;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+/* Fix Overflowing GIF in Game Modal */
 .game-modal img {
-    max-width: 130px;
-    margin-bottom: 20px;
+    max-width: 80%;  /* Ensures the GIF is responsive */
+    max-height: 150px; /* Restricts height */
+    object-fit: contain; /* Prevents stretching */
+    display: block;
+    margin: 0 auto; /* Centers the image */
 }
 
-.game-modal h4 {
-    font-size: 1.53rem;
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
 }
 
-.game-modal p {
-    font-size: 1.15rem;
-    margin: 15px 0 30px;
-    font-weight: 500;
+.progress {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(45deg, #ff3d00, #ff9100);
+    transition: width 0.3s ease-in-out;
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 850px) {
-    .container {
-        width: min(95%, 650px); /* Slightly smaller for medium screens */
-        padding: 30px 20px;
-    }
-}
 
+/* Responsive Design */
 @media (max-width: 600px) {
-    .site-header {
-        font-size: 1rem;
-        height: 50px;
-    }
-    
-    .site-footer {
-        font-size: 0.85rem;
-        padding: 6px;
-    }
-
-    .site-header img {
-        max-height: 35px; /* Prevents logo from getting too big */
-    }
-
     .container {
-        width: min(95%, 550px);
+        width: min(95%, 500px);
+        padding: 10px;
+    }
+
+    .game-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .scoreboard {
+        flex-direction: column;
+        text-align: center;
     }
 
     .hangman-box img {
-        max-width: 180px;
+        max-width: 140px;
     }
 
     .word-display .letter {
-        font-size: 1.6rem;
-        margin-bottom: 30px;
+        font-size: 1.3rem;
+        margin-bottom: 18px;
     }
 
     .keyboard button {
-        padding: 8px;
-        width: calc(100% / 6 - 5px);
-    }
-
-    .game-modal h4 {
-        font-size: 1.4rem;
-    }
-    
-    .game-modal p {
-        font-size: 1rem;
+        padding: 5px;
+        font-size: 0.75rem;
     }
 }
 
+/* Footer Glow Effect */
 @keyframes glowEffect {
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }
@@ -249,7 +304,7 @@ h1 {
 
 .footer-text {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-decoration: none;
     background: linear-gradient(90deg, rgba(165, 11, 217, 0.2), #0FFCBE, rgba(205, 9, 240, 0.2));
     background-size: 200% auto;
@@ -263,56 +318,82 @@ h1 {
     filter: brightness(1.2);
 }
 
-@media (max-width: 782px) {
-    .container {
-        max-width: 95%;
-        padding: 20px 15px;
-        gap: 30px;
-    }
-    
-    .hangman-box img {
-        max-width: 150px;
-    }
+/* 🎨 Apply Animated Background to the Whole Page */
+body {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: #2a2a72;
+    overflow: hidden;
+}
 
-    .hangman-box h1 {
-        font-size: 1.2rem;
-    }
+/* Background Animation */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent 0,
+        transparent 35px,
+        rgba(255, 255, 255, 0.15) 35px,
+        rgba(255, 255, 255, 0.15) 70px
+    ),
+    repeating-linear-gradient(
+        -45deg,
+        transparent 0,
+        transparent 35px,
+        rgba(255, 255, 255, 0.15) 35px,
+        rgba(255, 255, 255, 0.15) 70px
+    ),
+    linear-gradient(90deg, #009ffd, #2a2a72);
+    z-index: -1;
+}
 
-    .word-display .letter {
-        font-size: 1.5rem;
-        margin-bottom: 25px;
-    }
+/* Extra Layer for Dynamic Effect */
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at 50% 50%,
+        transparent 20%,
+        rgba(0, 0, 0, 0.2) 70%,
+        rgba(0, 0, 0, 0.5) 100%
+    ),
+    repeating-conic-gradient(
+        from 0deg,
+        rgba(255, 255, 255, 0.15) 0deg 30deg,
+        transparent 30deg 60deg
+    );
+    mix-blend-mode: overlay;
+    z-index: -2;
+    animation: rotate 10s linear infinite;
+}
 
-    .keyboard button {
-        font-size: 0.9rem;
-        padding: 5px;
+/* Background Animation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
     }
-
-    .game-box h4 {
-        font-size: 0.9rem;
-    }
-    
-    .site-footer {
-        font-size: 0.9rem;
-        padding: 10px 0;
+    100% {
+        transform: rotate(360deg);
     }
 }
 
-@media (max-width: 768px) {
-    .site-title {
-        font-size: 1.5rem;
+/* Accessibility: Disable Animation if Needed */
+@media (prefers-reduced-motion: reduce) {
+    body::before, body::after {
+        animation: none;
     }
 }
 
-/* Further reduce h1 size on mobile screens */
-@media (max-width: 480px) {
-    .site-title {
-        font-size: 1.2rem;
+/* High Contrast Mode */
+@media (prefers-contrast: more) {
+    body {
+        background-color: #1a1a4a;
     }
-}
-
-@media (max-width: 600px) {
-    .site-footer {
-        position: fixed;
+    body::before {
+        opacity: 0.9;
     }
 }

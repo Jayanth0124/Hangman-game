@@ -1,52 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman Game</title>
+    <title>Guess to Freedom - Hangman Game</title>
+
     <link rel="icon" type="image/svg+xml" href="images/logo4.png">
     <link rel="stylesheet" href="style.css">
+
     <script src="scripts/word-list.js" defer></script>
     <script src="scripts/script.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Josefin+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+
     <!-- Header Section -->
     <header class="site-header">
         <img src="images/logo4.png" alt="Logo" class="logo">
         <h1 class="site-title">Guess to Freedom</h1>
     </header>
-    
 
+    <!-- Game Modal -->
     <div class="game-modal">
         <div class="content">
             <img src="#" alt="gif">
             <h4>Game Over!</h4>
-            <p>The correct word was: <b>rainbow</b></p>
+            <p>The correct word was: <b id="correct-word">rainbow</b></p>
             <button class="play-again">Play Again</button>
         </div>
     </div>
+
+    <!-- Main Game Container -->
     <div class="container">
+        <!-- Game Level Selection -->
+        <div class="game-settings">
+            <label for="level-select">Choose Difficulty:</label>
+            <select id="level-select">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
         <div class="hangman-box">
             <img src="#" draggable="false" alt="hangman-img">
-            <h1></h1>
         </div>
         <div class="game-box">
             <ul class="word-display"></ul>
-            <h4 class="hint-text">Hint: <b></b></h4>
-            <h4 class="guesses-text">Incorrect guesses: <b></b></h4>
+            <h4 class="hint-text">Hint: <b id="word-hint"></b></h4>
+            <h4 class="guesses-text">Incorrect guesses: <b id="wrong-guesses"></b></h4>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            
             <div class="keyboard"></div>
+        </div>
+        <!-- Scoreboard -->
+        <div class="scoreboard">
+            <p>✅ Won: <span id="correct-score">0</span></p>
+            <p>❌ Lost: <span id="wrong-score">0</span></p>
         </div>
     </div>
 
+
+    <!-- Footer -->
     <footer class="site-footer">
-        <p>Made by 
+        <p>Made by
             <a href="https://www.jayanth.xyz/" target="_blank" class="footer-text">
                 Donavalli Jayanth
             </a>
         </p>
     </footer>
-    
+    <script src="scripts/game-settings.js" defer></script>
+
 </body>
 
 </html>
