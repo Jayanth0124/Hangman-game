@@ -53,20 +53,34 @@ const updateProgressBar = () => {
     progressBar.style.width = `${Math.max(0, remainingChances)}%`;
 };
 
-// Game Over Function
+// Load win/loss sounds
+const winSound = new Audio("sounds/won.wav");
+const loseSound = new Audio("sounds/lost.wav");
+
+// Game Over Function (Updated)
 const gameOver = (isVictory) => {
     if (gameModal.dataset.gameEnded) return;
 
     // Show modal with details
     const modalText = isVictory ? `You found the word:` : 'The correct word was:';
     gameModal.querySelector("img").src = `images/${isVictory ? 'victory' : 'lost'}.gif`;
-    gameModal.querySelector("h4").innerText = isVictory ? 'Congrats!' : 'Game Over!';
+    gameModal.querySelector("h4").innerText = isVictory ? 'Congrats Dear! 🥳🍾' : 'Game Over! 💀';
     gameModal.querySelector("p").innerHTML = `${modalText} <b>${currentWord}</b>`;
     gameModal.classList.add("show");
 
-    window.gameSettings.updateFinalScore(isVictory);
+    // Play "won.wav" if the player wins, otherwise play "lost.wav"
+    if (isVictory) {
+        winSound.currentTime = 0;
+        winSound.play();
+    } else {
+        loseSound.currentTime = 0;
+        loseSound.play();
+    }
+
     gameModal.dataset.gameEnded = "true";
+    window.gameSettings.updateFinalScore(isVictory);
 };
+
 
 // Handle User Input
 const initGame = (button, clickedLetter) => {
@@ -118,3 +132,23 @@ levelSelect.addEventListener("change", function() {
 
 // Initial Game Load
 getRandomWord();
+
+// Load sound effects
+const correctSound = new Audio("sounds/correct.mp3");
+const wrongSound = new Audio("sounds/wrong.wav");
+
+// Function to handle letter clicks
+document.querySelectorAll(".keyboard button").forEach(button => {
+    button.addEventListener("click", function () {
+        let letter = this.innerText.toUpperCase(); // 🔥 Convert to uppercase
+        
+        if (currentWord.includes(letter)) {
+            correctSound.currentTime = 0; // Reset to start
+            correctSound.play();  // 🔊 Play correct sound
+        } else {
+            wrongSound.currentTime = 0; // Reset to start
+            wrongSound.play();  // ❌ Play wrong sound
+        }
+    });
+});
+

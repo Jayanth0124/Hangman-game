@@ -16,7 +16,7 @@ Are you ready to **test your vocabulary** and **win your freedom?** 🏆
 ✅ **🎮 On-Screen Keyboard** – Clickable letters for easy interaction.  
 ✅ **📊 Scoreboard & Progress Bar** – Track your attempts visually.  
 ✅ **🔄 Mobile-Friendly** – Fully responsive across all screen sizes.  
-✅ **🔊 Sound Effects** *(Coming Soon!)* – Audio feedback for correct/wrong guesses.  
+✅ **🔊 Sound Effects**  – Audio feedback for correct/wrong guesses.  
 ✅ **🌍 Online Play (No Install Needed)** – Hosted on GitHub Pages & Netlify.  
 
 ---
@@ -41,7 +41,7 @@ Are you ready to **test your vocabulary** and **win your freedom?** 🏆
 ---
 
 ## 🌐 Live Demo
-🔗 **[Play "Guess to Freedom" Online!](https://lettermind.netlify.app/)**  
+🔗 **[Play "Guess to Freedom- Hangman Game" Online!](https://lettermind.netlify.app/)**  
 
 ---
 
