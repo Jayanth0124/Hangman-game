@@ -66,27 +66,3 @@ Are you ready to **test your vocabulary** and **win your freedom?** 🏆
 This project is **open-source**. Feel free to **modify, improve, and contribute!** 🚀  
 
 💡 **Enjoy the game & have fun guessing!** 🎯
-pository**  
-   ```bash
-   git clone https://github.com/Jayanth0124/Hangman-game.git
-   cd guess-to-freedom
-   ```
-2. **Open `index.html` in a browser**  
-   - No setup required! Just play & enjoy.
-
-## 🎮 How to Play
-- Click letters to guess the word.
-- You have limited attempts—choose wisely!
-- Click **"Play Again"** to restart.
-
-## 🌐 Live Demo
-🔗 [Play the Game Here](https://lettermind.netlify.app/)
-
-## 📷 Screenshot
-![Game Preview](images/image.png)
-
-## 📜 License
-This project is **open-source**. Feel free to modify and improve!
-
----
-💡 **Enjoy the game & have fun guessing!** 🎯
