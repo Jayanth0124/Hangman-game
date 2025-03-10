@@ -1,18 +1,6 @@
 # 🎮 Guess to Freedom - A Hangman Game
 
 ## 📝 Description
-"Guess to Freedom" is a fun and interactive Hangman-style word game where players must guess the correct word before running out of attempts. If you fail, you can restart again but you will get Another **Question** 😱
-
-## 🚀 Features
-- 🔤 Guess the word with hints
-- 🎨 Smooth UI with animated effects
-- 🏆 Play again and challenge yourself
-- 🌐 Hosted using **GitHub Pages**
-
-## 🛠 Installation
-1. **Clone the re# 🎮 Guess to Freedom - A Hangman Game
-
-## 📝 Description
 **"Guess to Freedom"** is an interactive **Hangman-style word game** where players must guess the correct word before running out of attempts. Every time you fail, the game resets with a **new word & hint!** 😱  
 
 Are you ready to **test your vocabulary** and **win your freedom?** 🏆
