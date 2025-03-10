@@ -17,8 +17,13 @@ body {
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
+    width: 100%;
+    min-height: 100vh; /* Ensure it takes the full page height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto !important; /* Allow vertical scrolling */
+    
 }
+
 .header {
     margin-top: 0;
     padding-top: 5px; /* Reduce if needed */
@@ -65,7 +70,7 @@ h1 {
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 0 15px;
-    overflow: hidden;
+    overflow: visible; /* Ensure it doesn't block */
 }
 
 /* Fix Logo Overflow */
@@ -103,6 +108,11 @@ h1 {
     border: 4px solid transparent;
     border-image: linear-gradient(45deg, #FFD700, #FFAA00, #FFD700);
     border-image-slice: 1;
+}
+
+.container {
+    max-height: calc(100vh - 120px); /* Adjust height based on header/footer */
+    overflow-y: auto; /* Allow scrolling inside container */
 }
 
 /* Game Settings & Scoreboard Inside Container */
@@ -347,6 +357,7 @@ body {
 /* Background Animation */
 body::before {
     content: "";
+    pointer-events: none; /* Prevents it from interfering */
     position: absolute;
     inset: 0;
     background: repeating-linear-gradient(
