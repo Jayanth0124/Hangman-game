@@ -352,36 +352,6 @@ body::before {
     z-index: -1;
 }
 
-/* Extra Layer for Dynamic Effect */
-body::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        circle at 50% 50%,
-        transparent 20%,
-        rgba(0, 0, 0, 0.2) 70%,
-        rgba(0, 0, 0, 0.5) 100%
-    ),
-    repeating-conic-gradient(
-        from 0deg,
-        rgba(255, 255, 255, 0.15) 0deg 30deg,
-        transparent 30deg 60deg
-    );
-    mix-blend-mode: overlay;
-    z-index: -2;
-    animation: rotate 10s linear infinite;
-}
-
-/* Background Animation */
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 /* Accessibility: Disable Animation if Needed */
 @media (prefers-reduced-motion: reduce) {
