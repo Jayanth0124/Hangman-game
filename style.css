@@ -340,7 +340,6 @@ h1 {
     animation: glowEffect 6s linear infinite;
     transition: 0.3s ease-in-out;
     position: relative;
-    display: inline-block;
     cursor: pointer;
     transition: transform 0.2s ease-out;
     touch-action: manipulation; /* Ensures smooth touch interaction */
