@@ -331,7 +331,7 @@ h1 {
 
 .footer-text {
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-decoration: none;
     background: linear-gradient(90deg, rgba(165, 11, 217, 0.2), #0FFCBE, rgba(205, 9, 240, 0.2));
     background-size: 200% auto;
@@ -339,10 +339,36 @@ h1 {
     -webkit-text-fill-color: transparent;
     animation: glowEffect 6s linear infinite;
     transition: 0.3s ease-in-out;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+    touch-action: manipulation; /* Ensures smooth touch interaction */
 }
 
 .footer-text:hover {
-    filter: brightness(1.2);
+    transform: translateY(-2px) scale(1.05); /* Lifts slightly */
+}
+
+.footer-text:active {
+    animation: clickEffect 0.2s ease-out;
+}
+@keyframes clickEffect {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); } /* Click compression */
+    100% { transform: scale(1); }
+}
+
+/* ✨ Touchscreen Animation Trigger (Simulates "pressed" feel) */
+@media (hover: none) {
+    .footer-text {
+        transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+    }
+
+    .footer-text:active {
+        opacity: 0.7; /* Quick fade effect */
+        transform: scale(0.95); /* Slight press-in effect */
+    }
 }
 
 /* 🎨 Apply Animated Background to the Whole Page */
