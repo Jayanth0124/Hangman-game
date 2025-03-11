@@ -332,7 +332,7 @@ h1 {
 .footer-text {
     font-weight: bold;
     font-size: 1.1rem;
-    text-decoration: none;
+    text-decoration: underline;
     background: linear-gradient(90deg, rgba(165, 11, 217, 0.2), #0FFCBE, rgba(205, 9, 240, 0.2));
     background-size: 200% auto;
     -webkit-background-clip: text;
