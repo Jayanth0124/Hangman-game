@@ -40,6 +40,10 @@ Are you ready to **test your vocabulary** and **win your freedom?** 🏆
 
 ---
 
+## Must Play **Sarcastic Mode** For More Fun 😁
+
+---
+
 ## 🌐 Live Demo
 🔗 **[Play "Guess to Freedom- Hangman Game" Online!](https://lettermind.netlify.app/)**  
 

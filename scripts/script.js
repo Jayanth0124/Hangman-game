@@ -152,3 +152,14 @@ document.querySelectorAll(".keyboard button").forEach(button => {
     });
 });
 
+document.addEventListener("keydown", function (event) {
+    let pressedKey = event.key.toUpperCase(); // Convert to uppercase for consistency
+
+    // Check if it's a valid letter (A-Z)
+    if (/^[A-Z]$/.test(pressedKey)) {
+        let button = [...keyboardDiv.querySelectorAll("button")].find(btn => btn.innerText === pressedKey);
+        if (button && !button.disabled) {
+            button.click(); // Simulate button click
+        }
+    }
+});
